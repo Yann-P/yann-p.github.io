@@ -1,0 +1,209 @@
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("/fonts/SpaceGrotesk-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("/fonts/SpaceGrotesk-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("/fonts/SpaceGrotesk-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("/fonts/SpaceGrotesk-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Space Grotesk";
+    src: url("/fonts/SpaceGrotesk-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Space Grotesk", sans-serif;
+}
+
+:root {
+    --nav-width: 720px;
+    color: #373635;
+}
+
+:root:not([data-theme="dark"]) {
+    --code-bg: rgba(255, 255, 255.5);
+    --code-block-bg: rgba(255, 255, 255.5);
+    --primary: #373635;
+    --secondary: #4c3f18;
+    --tertiary: #d7d6d5;
+    --border: var(--tertiary);
+}
+
+:root:not([data-theme="dark"]) .md-content pre code {
+    color: #1f2328 !important;
+}
+
+:root:not([data-theme="dark"]) a,
+:root:not([data-theme="dark"]) h1,
+:root:not([data-theme="dark"]) h2,
+:root:not([data-theme="dark"]) h3,
+:root:not([data-theme="dark"]) h4,
+:root:not([data-theme="dark"]) h5,
+:root:not([data-theme="dark"]) h6 {
+    text-shadow: 0 1px 0px rgba(255, 255, 255, 1);
+}
+
+:root:not([data-theme="dark"]) td,
+:root:not([data-theme="dark"]) pre,
+:root:not([data-theme="dark"]) table,
+:root:not([data-theme="dark"]) .callout,
+:root:not([data-theme="dark"]) th {
+    box-shadow: 0 1px 0px rgba(255, 255, 255, 1);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 500;
+}
+
+.md-content h1 {
+    font-size: 2rem;
+}
+.md-content h2 {
+    font-size: 1.6rem;
+}
+.md-content h3 {
+    font-size: 1.2rem;
+}
+.page-header h1 {
+    font-size: 1.6rem;
+}
+
+.post-title {
+    font-size: 1.6em;
+}
+
+body {
+    font-size: inherit;
+}
+
+.first-entry .entry-header h2 {
+    font-size: 1.5em;
+}
+
+:root:not([data-theme="dark"]) body {
+    background: #f9f8f7;
+}
+
+@media screen and (min-width: 500px) {
+    .post-content > p,
+    .post-content > ul,
+    .post-content > ol,
+    .post-content > pre,
+    .post-content > blockquote,
+    .post-content > table,
+    .post-content > figure,
+    .post-content > details,
+    .post-content > div {
+        margin-left: clamp(0rem, 4vw, 2rem);
+    }
+}
+
+.post-content code {
+    font-size: 1em;
+}
+
+details.toc {
+    border: 1px solid var(--tertiary);
+}
+
+.callout {
+    display: flex;
+    align-items: flex-start;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin: 1.25rem 0;
+    margin-left: 4rem;
+}
+
+.callout-icon {
+    transform: rotate(-10deg) scale(2) translateX(-10px) translateY(-10px);
+}
+
+.callout-body > *:first-child {
+    margin-top: 0;
+}
+.callout-body > *:last-child {
+    margin-bottom: 0;
+}
+
+.callout-info {
+    border-color: var(--tertiary);
+    background: color-mix(in srgb, var(--tertiary) 30%, transparent);
+}
+.callout-warning {
+    border-color: #ea1;
+    background: rgba(212, 160, 23, 0.1);
+}
+.callout-error {
+    border-color: #d94a4a;
+    background: rgba(217, 74, 74, 0.08);
+}
+
+[data-theme="dark"] .callout-info {
+    background: rgba(74, 144, 217, 0.12);
+}
+[data-theme="dark"] .callout-warning {
+    background: rgba(212, 160, 23, 0.12);
+}
+[data-theme="dark"] .callout-error {
+    background: rgba(217, 74, 74, 0.12);
+}
+
+.post-entry {
+    background: transparent;
+    border: none;
+    padding-inline: 0;
+}
+
+.post-entry:hover,
+.post-entry:focus-within {
+    transform: none;
+    border-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --header-height: 30px;
+    }
+    nav {
+        margin-top: var(--gap) !important;
+    }
+}
+
+.logo a {
+    font-weight: 400;
+}

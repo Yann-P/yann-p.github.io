@@ -1,0 +1,56 @@
+baseURL: https://yann.md/
+title: Yann Pellegrini
+theme: ["PaperMod"]
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+languages:
+  en:
+    label: "English"
+    locale: en-us
+    weight: 1
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - name: Search
+          url: search/
+          weight: 2
+        - name: "Github"
+          url: https://github.com/Yann-P
+          weight: 3
+  fr:
+    label: "Français"
+    locale: fr-fr
+    weight: 2
+    taxonomies:
+      category: categories
+      tag: tags
+      series: series
+    menu:
+      main:
+        - name: Recherche
+          url: search/
+          weight: 2
+        - name: "Github"
+          url: https://github.com/Yann-P
+          weight: 3
+tableOfContents:
+  startLevel: 2
+  endLevel: 3
+  ordered: false
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+markup:
+  highlight:
+    noClasses: false
+    guessSyntax: true
+
+params:
+  disableScrollToTop: true
+  disableSpecial1stPost: true
+  displayFullLangName: true
