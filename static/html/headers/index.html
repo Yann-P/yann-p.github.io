@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Heading scale interpolation</title>
+        <style>
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                margin: 10px;
+                padding: 0;
+                line-height: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            start (h1):
+            <input type="number" id="start" value="2.625" step="any" min="0" style="width: 6em" />
+            rem &nbsp; end (h6):
+            <input type="number" id="end" value="1" step="any" min="0" style="width: 6em" /> rem
+        </p>
+
+        <h1>h1: Lorem ipsum dolor sit amet</h1>
+        <h2>h2: Lorem ipsum dolor sit amet</h2>
+        <h3>h3: Lorem ipsum dolor sit amet</h3>
+        <h4>h4: Lorem ipsum dolor sit amet</h4>
+        <h5>h5: Lorem ipsum dolor sit amet</h5>
+        <h6>h6: Lorem ipsum dolor sit amet</h6>
+
+        <p>
+            <label for="s"
+                >linear <input type="range" id="s" min="0" max="1" step="0.01" value="0" /> eased
+                out</label
+            >
+        </p>
+        <table border="1" cellpadding="6">
+            <thead>
+                <tr>
+                    <th>Heading</th>
+                    <th>rem to previous</th>
+                    <th>% to previous</th>
+                    <th>font size (rem)</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+
+        <script>
+            const N = 5; // 6 headers = 5 steps.
+            const power = (s) => 1 + 5 * s;
+            const ease = (t, p) => 1 - (1 - t) ** p; // ease-out
+            const sizeAt = (start, end, p, i) => start + (end - start) * ease(i / N, p);
+
+            const headings = [...document.querySelectorAll("h1,h2,h3,h4,h5,h6")];
+            const tbody = document.getElementById("tbody");
+            const slider = document.getElementById("s");
+            const startEl = document.getElementById("start");
+            const endEl = document.getElementById("end");
+            const fmtPct = (v) => (v >= 0 ? "+" : "\u2212") + Math.abs(v).toFixed(2) + "%";
+
+            function update() {
+                const start = parseFloat(startEl.value);
+                const end = parseFloat(endEl.value);
+                const s = parseFloat(slider.value);
+                const p = power(s);
+
+                if (!isFinite(start) || !isFinite(end)) return; // wait for valid input
+
+                headings.forEach((h, i) => {
+                    h.style.fontSize = sizeAt(start, end, p, i).toFixed(3) + "rem";
+                });
+                tbody.innerHTML = "";
+                for (let i = 0; i <= N; i++) {
+                    const sz = sizeAt(start, end, p, i);
+                    let pct = 0;
+                    let diff = 0;
+                    if (i > 0) {
+                        const prev = sizeAt(start, end, p, i - 1);
+                        pct = prev === 0 ? "n/a" : fmtPct(((sz - prev) / prev) * 100);
+                        diff = sz - prev;
+                    }
+                    tbody.insertAdjacentHTML(
+                        "beforeend",
+                        `<tr><td>h${i + 1}</td><td>${diff.toFixed(2)} rem</td><td>${pct}</td><td>${sz.toFixed(3)}</td></tr>`,
+                    );
+                }
+            }
+
+            [slider, startEl, endEl].forEach((el) => el.addEventListener("input", update));
+            update();
+        </script>
+    </body>
+</html>

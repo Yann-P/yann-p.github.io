@@ -17,6 +17,9 @@ languages:
         - name: Search
           url: search/
           weight: 2
+        - name: Tools
+          url: tools/
+          weight: 2
         - name: "Github"
           url: https://github.com/Yann-P
           weight: 3
