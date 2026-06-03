@@ -1,54 +1,24 @@
-@font-face {
-    font-family: "Space Grotesk";
-    src: url("/fonts/SpaceGrotesk-Light.woff2") format("woff2");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+
+body {
+    font-family: 'helvetica neue', sans-serif; 
+}
+.main, .header-nav {
+    max-width: 70ch;
 }
 
-@font-face {
-    font-family: "Space Grotesk";
-    src: url("/fonts/SpaceGrotesk-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+.header-nav {
+   line-height: 1;
 }
 
-@font-face {
-    font-family: "Space Grotesk";
-    src: url("/fonts/SpaceGrotesk-Medium.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Space Grotesk";
-    src: url("/fonts/SpaceGrotesk-SemiBold.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Space Grotesk";
-    src: url("/fonts/SpaceGrotesk-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Space Grotesk", sans-serif;
+#menu {
+    display: flex;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 :root {
-    --nav-width: 720px;
+    --nav-width: 70ch;
     color: #373635;
 }
 
@@ -65,72 +35,27 @@ h6 {
     color: #1f2328 !important;
 }
 
-:root:not([data-theme="dark"]) a,
-:root:not([data-theme="dark"]) h1,
-:root:not([data-theme="dark"]) h2,
-:root:not([data-theme="dark"]) h3,
-:root:not([data-theme="dark"]) h4,
-:root:not([data-theme="dark"]) h5,
-:root:not([data-theme="dark"]) h6 {
-    text-shadow: 0 1px 0px rgba(255, 255, 255, 1);
-}
-
-:root:not([data-theme="dark"]) td,
-:root:not([data-theme="dark"]) pre,
-:root:not([data-theme="dark"]) table,
-:root:not([data-theme="dark"]) .callout,
-:root:not([data-theme="dark"]) th {
-    box-shadow: 0 1px 0px rgba(255, 255, 255, 1);
-}
-
-h1,
-h2,
-h3 {
-    font-weight: 500;
-}
-
-.md-content h1 {
-    font-size: 2rem;
-}
-.md-content h2 {
-    font-size: 1.6rem;
-}
-.md-content h3 {
-    font-size: 1.2rem;
-}
-.page-header h1 {
-    font-size: 1.6rem;
-}
-
-.post-title {
-    font-size: 1.6em;
-}
-
 body {
-    font-size: inherit;
+    padding: 2rem;
 }
 
-.first-entry .entry-header h2 {
-    font-size: 1.5em;
+a:not(.entry-link) {
+    border-bottom: 2px solid var(--tertiary);
 }
+
+.logo>a {
+    border-bottom: none;
+}
+
+.logo-switches{
+    display: none;
+}
+
 
 :root:not([data-theme="dark"]) body {
     background: #f9f8f7;
 }
 
-@media screen and (min-width: 500px) {
-    .post-content > p,
-    .post-content > ul,
-    .post-content > ol,
-    .post-content > pre,
-    .post-content > blockquote,
-    .post-content > table,
-    .post-content > figure,
-    .post-content > details,
-    .post-content > div {
-        margin-left: clamp(0rem, 4vw, 2rem);
-    }
-}
 
 .post-content code {
     font-size: 1em;
