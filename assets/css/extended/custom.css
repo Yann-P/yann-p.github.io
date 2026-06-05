@@ -53,7 +53,7 @@ a:not(.entry-link) {
 
 
 :root:not([data-theme="dark"]) body {
-    background: #f9f8f7;
+    background: orange;
 }
 
 
