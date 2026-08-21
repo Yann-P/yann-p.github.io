@@ -4,15 +4,6 @@ date: 2026-05-11
 ShowToc: true
 ---
 
-From scratch or from a base image of your choice.
-
-<!--more-->
-
----
-
-
-
-
 ## Prerequisite: if you start from a base image, is it based on alpine or debian?
 
 The syntax is not the same because debian uses `cron` [^1] while alpine uses `crond` [^2].

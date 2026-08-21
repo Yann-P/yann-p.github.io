@@ -3,13 +3,6 @@ title: "Github actions credentials security without breaking your workflows"
 date: 2026-05-11
 ---
 
-`persist-credentials: false` + `git push` = 💥 and how to fix it
-
-
-<!--more-->
-
----
-
 In the light of the recent [Tanstack supply-chain attack](https://tanstack.com/blog/npm-supply-chain-compromise-postmortem), pipeline security has become the priority of several projects.
 
 Mistakes in github actions are tricky to see and can have devastating consequences, through PR-controlled variable injection [^2].

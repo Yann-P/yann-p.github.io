@@ -5,12 +5,6 @@ draft: true
 ShowToc: true
 ---
 
-I rent a cheap VPS and my goal was a reliable, low-tech self-hosting. 
-
-It relies on docker-compose, git and borg.
-
-<!--more-->
-
 ## Goals
 
 | Goal   | Proposed solution   |
